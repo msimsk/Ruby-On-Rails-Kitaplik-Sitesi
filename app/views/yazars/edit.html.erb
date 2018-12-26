@@ -1,0 +1,13 @@
+<div class="container">
+	<div class="card text-center" style="background-color: #f1eee5">
+		<h1 class="text-success">Düzenlemek Yazar</h1>
+
+		<%= render 'form', yazar: @yazar %>
+
+		<div>
+			<%= link_to 'Göster', @yazar %>
+			<%= link_to 'Geri', yazars_path, :class => 'ml-3' %>
+		</div>
+	</div>
+</div>
+

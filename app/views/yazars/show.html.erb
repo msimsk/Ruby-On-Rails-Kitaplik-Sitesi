@@ -1,0 +1,16 @@
+
+<div class="container">
+	<div class="card text-center" style="background-color: #f1eee5">
+		<p id="notice"><%= notice %></p>
+
+		<p>
+		  <strong class="h4">Isim:</strong>
+		  <h3><%= @yazar.isim %></h3>
+		</p>
+		<div>
+			<%= link_to 'Düzenle', edit_yazar_path(@yazar) %>
+			<%= link_to 'Geri', yazars_path, :class => 'ml-3' %>
+
+		</div>
+	</div>
+</div>

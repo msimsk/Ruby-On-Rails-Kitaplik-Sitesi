@@ -1,0 +1,32 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+	<div class="card" style="background-color: #f1eee5">
+		<h1 class="text-center text-success">Yazarlar</h1>
+
+		<table class="ml-5">
+		  <thead>
+		    <tr>
+		      <th><h3 class="text-success">Isim</h3></th>
+		      <th colspan="3"></th>
+		    </tr>
+		  </thead>
+
+		  <tbody>
+		    <% @yazars.each do |yazar| %>
+		      <tr>
+		        <td><h3><%= yazar.isim %></h3></td>
+		        <h4>
+		        <td><%= link_to 'Göster', yazar %></td>
+		        <td><%= link_to 'Düzenle', edit_yazar_path(yazar) %></td>
+		        <td><%= link_to 'Sil', yazar, method: :delete, data: { confirm: 'Emin misin?' } %></td>
+		    	</h4>
+		      </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+
+		<br>
+		<div class="text-center"><h1><%= link_to 'Yazar Ekle', new_yazar_path %></h1></div>
+		
+	</div>
+</div>

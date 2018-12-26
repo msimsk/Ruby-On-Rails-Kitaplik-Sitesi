@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Yorums</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mesaj</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @yorums.each do |yorum| %>
+      <tr>
+        <td><%= yorum.mesaj %></td>
+        <td><%= link_to 'Show', yorum %></td>
+        <td><%= link_to 'Edit', edit_yorum_path(yorum) %></td>
+        <td><%= link_to 'Destroy', yorum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Yorum', new_kitap_yorum_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <%= link_to 'Kitap Ekle', new_kitap_path, :class => 'h3 text-success mr-3' %>
+  <%= link_to 'Yazar Ekle', new_yazar_path, :class => 'h3 text-success' %>
+ <div class="row">
+  <% @kitaps.each do |kitap| %>
+      <div class="col-lg-6">
+        <div class="card my-3" style="background-color: #f1eee5;">
+          <div class="row">
+            <div class="col-lg-5">
+                <div class="card-header h-100"><%= image_tag kitap.resim.url(:thumb) if kitap.resim? %></div>
+            </div>
+            <div class="col-lg-7">
+              <div class="card-body">
+                <%= kitap.isim %><br>
+                <%= kitap.sayfa %><br>
+                <%= kitap.ozet %><br>
+                <%= kitap.user.email %><br><br>
+                <%= link_to 'Goster', kitap %>
+                <%= link_to 'Duzenle', edit_kitap_path(kitap) %>
+                <%= link_to 'Sil', kitap, method: :delete, data: { confirm: 'Emin misin?' } %>  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+</div>
+

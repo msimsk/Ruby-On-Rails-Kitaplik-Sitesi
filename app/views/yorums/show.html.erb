@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mesaj:</strong>
+  <%= @yorum.mesaj %>
+</p>
+
+<%= link_to 'Edit', edit_yorum_path(@yorum) %> |
+<%= link_to 'Back', yorums_path %>

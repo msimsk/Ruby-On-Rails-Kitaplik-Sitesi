@@ -1,0 +1,9 @@
+<%= form_for ([@kitap, Yorum.new]) do |form| %>
+  <div class="row">
+  	<div class="col-md-6 col-lg-6 col-sm-6">
+  		<%=form.text_field :mesaj,  class:"form-control" %>
+	</div>
+	<div class="col-md-6 col-lg-6 col-sm-6">
+  		<%=form.submit "Yorum At", class:"form-action btn btn-info" %>
+  	</div>
+<% end %>

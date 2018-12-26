@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg sticky-top" style="background-color: #BC8F8F; color: #000000;">
+  <b class="navbar-brand"><%= link_to 'Kutuphane', kitaps_path, :class => 'text-dark' %></b>
+  <%= image_tag(image_path('kitap.png'), :class => "navbar-brand w" )-%>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">      
+        <h5>
+          <%= link_to 'AnaSayfa', kitaps_path, :class => 'text-dark' %>
+          <%= link_to 'Yazarlar', yazars_path, :class => 'text-dark' %>
+        </h5>
+      </li>
+    </ul>
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="background-color: #ffffff; color: black;">Search</button>
+    </form>
+
+    <% if user_signed_in? %>
+      <strong class="text-dark"><%= current_user.email %></strong>
+      <%= link_to 'Profili Duzenle', edit_user_registration_path, :class => 'navbar-link text-dark' %> 
+      <%= link_to "Cikis", destroy_user_session_path, method: :delete, :class => 'navbar-link text-dark'  %>
+    <% else %>
+      &nbsp; <%= link_to "Kayit", new_user_registration_path, :class => 'navbar-link text-dark'  %> 
+      <%= link_to "Giris", new_user_session_path, :class => 'navbar-link text-dark'  %>
+    <% end %>    
+  </div>
+</nav>
+<footer class="fixed-bottom text-center" style="background-color: #BC8F8F; color: #000000; max-width: 100%; height: 60px">
+  <h5 class="text-dark mt-3">Mustafa Simsek</h5>  
+</footer>

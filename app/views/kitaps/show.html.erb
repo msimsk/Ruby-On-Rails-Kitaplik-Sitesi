@@ -1,0 +1,51 @@
+<div class="container" style="background-color: #f1eee5;">
+	<p id="notice"><%= notice %></p>
+	<div class="card ml-5 border-0" style="background-color: #f1eee5;" >
+		<p><%= image_tag @kitap.resim.url(:medium) if @kitap.resim? %></p>
+	</div>
+
+	<div class="row ml-4">
+		<div class="col-lg-2 col-sm-2 col-md-2">
+			<strong>Isim:</strong><br>
+			<%= @kitap.isim %>
+		</div>
+		<div class="col-lg-1 col-sm-1 col-md-1">
+			<strong>Sayfa:</strong><br>
+			<%= @kitap.sayfa %>
+		</div>
+		<div class="col-lg-9 col-sm-9 col-md-9 mb-3">
+			<strong>Ozet:</strong><br>
+			<%= @kitap.ozet %>
+		</div>
+		<%=render 'yorums/form'%>
+
+	</div>
+	<div class="container text-center mt-3" style="height: 20%; width: 100%; background-color: #1aeee5">
+		<h3>Yorumlar</h3>
+	</div>
+	<div class="row ml-4">
+		<%@kitap.yorums.each do |c|%>
+		<div class="col-md-4 col-sm-4 col-lg-4">
+			<b><%=c.mesaj%></b><br/>
+		</div>
+		<div class="col-md-4 col-sm-4 col-lg-4"></div>			
+		<div class="col-md-4 col-sm-4 col-lg-4">
+			<em class="mr-4"><%=c.user.email%></em><%= link_to 'Sil', request.original_url+"/yorumlar/"+c.id.to_s, method: :delete, data: { confirm: 'Emin Misin?' } %>
+		</div>
+		<%end%>
+		<div class="col-md-12 col-sm-12 col-lg-12">
+			<%= link_to " Beğen ", kitap_like_path(@kitap), remote: :true, method: :put, :class => 'like ml-5'%>
+			<%= link_to 'Düzenle', edit_kitap_path(@kitap), :class => 'ml-3' %>
+			<%= link_to 'Geri', kitaps_path, :class => 'ml-3' %>
+		</div>
+	</div>
+	
+
+</div>
+<script>
+$(document).ready(function(){
+  $(".like").click(function(){
+    $(".like").html("Beğendin");
+  });
+});
+</script>
